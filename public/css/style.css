@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+input.submit-work {
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+input.title-work {
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    padding:5px;
+}
+input.describe-work {
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.col-sm-6.my-work {
+    padding: 0px;
+    text-align: center;
+}
+
+.col-sm-3.list-day {
+    background: yellowgreen;
+    padding: 0px;
+}
+
+.col-sm-3.list-day ul li {
+    list-style-type: none;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.col-sm-3.list-day ul li a {
+    color: whitesmoke;
+}
+
+.col-sm-3.list-day ul li:hover {
+    background: #b9e06a;
+}
+
+.col-sm-3.list-work {
+    background: #434c50;
+    padding-right: 0px;
+}
+
+.col-sm-3.list-work ul {
+    text-decoration: none;
+}
+
+.col-sm-3.list-work ul li {
+    list-style-type: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.col-sm-3.list-work ul li a {
+    color: #e8e3d9;
+}
+
+.col-sm-3.list-work ul li:hover {
+    background: black;
+}
