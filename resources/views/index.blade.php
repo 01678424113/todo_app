@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
+    <base href="{{asset('')}}">
 </head>
 <body>
 
@@ -61,46 +62,51 @@
         </div>
         {{--Over list-day--}}
         <div class="col-sm-6 my-work">
-            <form action="#" method="post">
-                <input type="text" name="title" placeholder="Nhập công việc" class="title-work"><br>
-                <input type="text" name="describe" placeholder="Nhập miêu tả" class="describe-work"><br>
-                <input type="submit" value="Add" class="btn btn-success submit-work ">
+            <form action="/themcv" method="post" id="add_cv">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="row">
+                    <input type="text" name="Title" placeholder="Nhập công việc" class="title-work"><br>
+                    <input type="submit" value="Add" class="btn btn-success submit-work mt-2"><br>
+                </div>
+                <input type="text" name="Describes" placeholder="Nhập miêu tả" class="describe-work">
             </form>
-            <div id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingOne">
-                        <h5 class="mb-0">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Collapsible Group Item #1
-                            </a>
-                        </h5>
-                    </div>
-                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="card-block">
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid singl.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingTwo">
-                        <h5 class="mb-0">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Collapsible Group Item #2
-                            </a>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="card-block">
-                            AAeiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid singl.
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         {{--Over my-work--}}
     </div>
 </div>
 {{--Over content--}}
+<div class="container mt-5">
+    <h3>My Work</h3>
+    <table class="table table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Describes</td>
+            <td>Done</td>
+            <td>Delete</td>
+        </tr>
+        @foreach($mywork as $mw)
+            <script>
+                $(document).ready(function () {
+                    $('#<?php echo ('work'.$mw->id); ?>').click(function () {
+                        alert('Hello')
+                    });
+                })
+            </script>
+            <tr class="<?php
+                if($mw->is_done == 1){
+                    echo 'done';
+                }
+            ?>" id="{{ 'work'.$mw->id }}">
+            <td>{{$mw->id}}</td>
+            <td>{{$mw->Title}}</td>
+            <td>{{$mw->Describes}}</td>
+            <td><a href="/done/{{$mw->id}}" class="btn btn-success">Done</a></td>
+            <td><p class="btn btn-danger" >Delete</p></td>
+        </tr>
+        @endforeach
+    </table>
+</div>
 <div class="footer">
 
 </div>

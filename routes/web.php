@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home',function (){
-   return view('index');
-});
+Route::get('/home','myWorkController@getWork')->name('home');
+Route::post('/themcv','myWorkController@postWork')->name('add');
+
+Route::get('/delete/{id}','myWorkController@deleteWork')->name('delete');
+
+Route::get('/done/{id}','myWorkController@doneWork');
+
+

@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class myWork
+ * @package App
+ *
+ * @property string Title
+ * @property int is_done
+ * @property int id_list_work
+ * @property mixed Describes
+ * @mixin \Eloquent
+ */
 class myWork extends Model
 {
     //
